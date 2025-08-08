@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* reset para evitar el “margen/columna” del template o extensiones */
+html, body, #root { height: 100%; width: 100%; }
+body { margin: 0; padding: 0; }
+#root { display: block; }
