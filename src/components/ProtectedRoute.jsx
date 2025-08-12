@@ -7,7 +7,7 @@ export default function ProtectedRoute({ children, roles }) {
 
   if (roles && !roles.includes(user.role)) {
     alert("No tienes permisos para acceder a esta página.");
-    return <Navigate to="/profile" replace />; // 403 visual
+    return <Navigate to="/profile" replace />; 
   }
   return children;
 }

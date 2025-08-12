@@ -10,7 +10,7 @@ export default function Layout() {
 
   const handleLogout = async () => {
     try { await api.post("/auth/logout"); } catch(error) {
-      console.log(error);
+      throw new Error("Error al cerrar sesión: " + error.message);
     }
     logout();
     navigate("/login");
@@ -31,7 +31,6 @@ export default function Layout() {
         <div className="flex items-center gap-4">
           {user?.role === "Admin" && (
             <>
-              {/* Hamburger button */}
               <button
                 className="md:hidden mr-2"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -41,11 +40,9 @@ export default function Layout() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
               </button>
-              {/* Links for desktop */}
               <div className="hidden md:flex gap-4">
                 {adminLinks}
               </div>
-              {/* Links for mobile */}
               {menuOpen && (
                 <div className="absolute top-16 left-0 w-full bg-gray-900 flex flex-col gap-2 px-4 py-2 md:hidden z-10">
                   {adminLinks}
