@@ -13,6 +13,7 @@ export default function Dashboard() {
           <Card to="/users" title="Usuarios" desc="Gestiona usuarios" />
           <Card to="/studies" title="Estudios" desc="Ver/editar todos" />
           <Card to="/addresses" title="Direcciones" desc="Ver/editar todas" />
+          <Card to="/session-logs" title="Sesiones" desc="Ver logs" />
         </div>
       ) : (
         <div className="grid sm:grid-cols-3 gap-4">

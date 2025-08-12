@@ -1,14 +1,14 @@
-📄 README – Frontend (React)
-WILLIAMS NEME SCHEIJ, TOMAS.
-Zoco Users Frontend – Prueba Técnica Full Stack
-Frontend desarrollado en React + Vite con TailwindCSS, React Router DOM, Context API y Axios para consumir la API y gestionar la sesión.
+📄 README – Frontend Zoco
+Autor: Williams Neme Scheij, Tomas
 
-🚀 Tecnologías
+Zoco Frontend – React + Vite + Tailwind
+Cliente web para la API de Zoco.
+Manejo de sesión con Context API, llamadas con Axios, y rutas protegidas con React Router.
+
+Tecnologías
 React 18 + Vite
 
-React Router DOM
-
-Context API
+React Router DOM, Context API
 
 Axios
 
@@ -16,48 +16,57 @@ Tailwind CSS
 
 sessionStorage
 
-📂 Estructura del proyecto
-frontend/
- ├── src/
- │   ├── api/
- │   ├── components/
- │   ├── context/
- │   ├── pages/
- │   ├── App.jsx
- │   └── index.css
- ├── package.json
- └── vite.config.js
-⚙️ Variables de entorno requeridas
-En un archivo .env en la raíz:
+Variables de entorno
+Crear un archivo .env en la raíz del proyecto:
 
-VITE_API_URL=https://localhost:7235/api
 
-Cambia la URL al backend en producción.
+VITE_API_URL=http://localhost:5260/api
+Ajusta el puerto al que muestre el backend al iniciar (dotnet run).
 
-📦 Instalación y ejecución local
-1. Clonar el repositorio
-git clone https://github.com/usuario/frontend-zoco.git
-cd frontend-zoco
-2. Instalar dependencias
+Instalación y ejecución
+
 npm install
-3. Ejecutar en desarrollor
 npm run dev
+Frontend disponible en: http://localhost:5173
 
-La app estará disponible en:
-http://localhost:5173
+Rutas y Roles
+Admin: /users, /studies, /addresses, /session-logs
 
-🔐 Funcionalidades
-Login con AuthContext y JWT
+User: /profile, /studies, /addresses
 
-Dashboard:
+ProtectedRoute valida token y roles.
 
-Admin: ver/gestionar usuarios, estudios y direcciones
+SessionLogs (solo Admin)
+Vista /session-logs → lista sesiones activas y finalizadas.
 
-User: ver/editar solo sus datos
+Consume GET /api/session-logs del backend.
 
-CRUD de estudios y direcciones con validación por rol
+Login / Logout
+Login: contra /auth/login, guarda token y usuario en contexto y sessionStorage.
 
-Logout global
+Logout: llama a /auth/logout, limpia contexto y redirige a /login.
 
-Diseño responsivo
+Build / Deploy
+
+npm run build
+Salida en dist/.
+
+En Vercel:
+
+Framework: Vite
+
+Build Command: npm run build
+
+Output Directory: dist
+
+Variables de entorno:
+
+VITE_API_URL=https://TU_DOMINIO_BACKEND/api
+En el backend, habilitar dominio del front en CORS.
+
+Credenciales de prueba
+Admin: admin@zoco.com / Admin123!
+
+User: user@zoco.com / User123!
+
 
